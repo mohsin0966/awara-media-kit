@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "mediakit"
+    label: "Media Kit"
+    files:
+      - file: "content/data.json"
+        label: "Media Kit Content"
+        name: "data"
+        fields:
+          - { label: "Full Name", name: "name", widget: "string", default: "Samuel Gaikwad" }
+          - { label: "Handle / Tagline", name: "handle", widget: "string", default: "@awara.hai · Digital Creator" }
+          - { label: "Contact Email (shown on page)", name: "email", widget: "string", default: "samuelgaikwad@gmail.com" }
+          - { label: "WhatsApp Number (with country code, digits only)", name: "whatsapp", widget: "string", default: "919999999999" }
+          - { label: "Instagram Username (no @)", name: "instagram", widget: "string", default: "awara.hai" }
+
+          - label: "Photos"
+            name: "photos"
+            widget: "object"
+            fields:
+              - { label: "Cover / Hero Photo", name: "heroPhoto", widget: "image", required: false }
+              - { label: "About Section Photo", name: "aboutPhoto", widget: "image", required: false }
+
+          - label: "Stats"
+            name: "stats"
+            widget: "object"
+            fields:
+              - { label: "Instagram Followers", name: "followers", widget: "string", default: "12K" }
+              - { label: "Engagement Rate", name: "eng", widget: "string", default: "4.8%" }
+              - { label: "Monthly Reach", name: "reach", widget: "string", default: "1M" }
+              - { label: "Total Posts", name: "posts", widget: "string", default: "72" }
+
+          - label: "Audience"
+            name: "audience"
+            widget: "object"
+            fields:
+              - { label: "Male %", name: "malePct", widget: "number", default: 68, min: 0, max: 100 }
+              - { label: "Top Locations", name: "location", widget: "string", default: "Pune · Mumbai · Delhi · Bangalore" }
+
+          - label: "Brand Collaboration Logos"
+            name: "brandLogos"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Brand Name", name: "name", widget: "string" }
+              - { label: "Logo Image", name: "image", widget: "image", required: false }
+
+          - label: "Gallery / Past Work Photos"
+            name: "gallery"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption (optional)", name: "caption", widget: "string", required: false }

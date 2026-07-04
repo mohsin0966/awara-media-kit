@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samuel Gaikwad — Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --amber:#E8830A;--amber2:#F5A623;--ink:#0a0a0a;
+  --white:#ffffff;--offwhite:#f5f3ef;--muted:#888;
+  --slide-h: 100vh;
+  --slide-h: 100svh;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.slide {
+  position: relative;
+  width: 100%;
+  min-height: var(--slide-h);
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+.pdf-page-break { page-break-before: always; break-before: page; }
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ink);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── NAV DOT ─── */
+.nav-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:10px}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .3s;border:none}
+.nav-dot.active{background:var(--amber);transform:scale(1.3)}
+
+/* ─── SLIDE 1: HERO ─── */
+#s1{background:var(--ink);justify-content:flex-end;padding-bottom:0}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a1208 0%,#0a0a0a 60%);z-index:0}
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80') center/cover no-repeat;
+  opacity:.18;mix-blend-mode:luminosity;
+}
+.hero-amber-glow{position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,131,10,.18) 0%,transparent 70%);z-index:1;pointer-events:none}
+.hero-content{position:relative;z-index:2;padding:48px 24px 40px;width:100%}
+
+/* IG-style profile strip */
+.ig-strip{position:relative;z-index:2;display:flex;align-items:center;gap:14px;padding:20px 24px 0}
+.ig-avatar-ring{width:66px;height:66px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);flex-shrink:0;cursor:pointer}
+.ig-avatar-ring .ig-avatar-inner{width:100%;height:100%;border-radius:50%;background:#111;border:3px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ig-avatar-inner img{width:100%;height:100%;object-fit:cover;display:none}
+.ig-avatar-inner svg{width:22px;height:22px;stroke:rgba(255,255,255,.3);fill:none}
+.ig-user-block{flex:1;min-width:0}
+.ig-username{font-weight:700;font-size:15px;display:flex;align-items:center;gap:5px}
+.ig-username .badge{width:14px;height:14px;background:#3897f0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ig-username .badge svg{width:9px;height:9px;fill:#fff}
+.ig-stats-row{display:flex;gap:16px;margin-top:6px}
+.ig-stats-row div{font-size:12px;color:rgba(255,255,255,.55)}
+.ig-stats-row strong{color:#fff;font-weight:700;font-size:13px;display:block}
+.ig-follow-row{display:flex;gap:8px;padding:14px 24px 0;position:relative;z-index:2}
+.ig-follow-btn{flex:1;background:var(--amber);color:#fff;border:none;border-radius:8px;padding:7px;font-size:13px;font-weight:600;text-align:center;text-decoration:none}
+.ig-msg-btn{flex:1;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:7px;font-size:13px;font-weight:600;text-align:center;text-decoration:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,131,10,.12);border:1px solid rgba(232,131,10,.3);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+.hero-eyebrow span{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,14vw,80px);line-height:.95;letter-spacing:2px;color:var(--white);margin-bottom:8px}
+.hero-name em{color:var(--amber);font-style:normal}
+.hero-handle{font-size:16px;color:rgba(255,255,255,.5);font-weight:400;margin-bottom:24px;letter-spacing:.5px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.hero-tag{padding:7px 14px;border-radius:20px;font-size:12px;font-weight:500;letter-spacing:.3px}
+.hero-tag.filled{background:var(--amber);color:#fff}
+.hero-tag.outline{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7)}
+.hero-scroll{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.5px}
+.scroll-line{width:40px;height:1px;background:rgba(255,255,255,.2)}
+
+/* VIDEO PLACEHOLDER */
+.hero-video-wrap{position:relative;z-index:2;margin:0 24px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-bottom:none}
+.video-placeholder{width:100%;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,.4)}
+.play-btn{width:56px;height:56px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s}
+.play-btn:hover{transform:scale(1.08)}
+.play-btn svg{width:20px;height:20px;fill:#fff;margin-left:3px}
+.video-label{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.5px}
+
+/* ─── SLIDE 2: ABOUT ─── */
+#s2{background:#111;padding:60px 24px}
+.about-eyebrow{font-size:11px;font-weight:600;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.about-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,9vw,52px);line-height:1.05;margin-bottom:20px;color:var(--white)}
+.about-body{font-size:15px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:32px}
+.about-img{width:100%;border-radius:14px;aspect-ratio:4/3;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:28px}
+.img-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.2)}
+.img-placeholder svg{width:36px;height:36px;stroke:currentColor;fill:none}
+.img-placeholder span{font-size:12px;letter-spacing:.5px}
+.value-chips{display:flex;flex-wrap:wrap;gap:8px}
+.value-chip{background:rgba(232,131,10,.1);border:1px solid rgba(232,131,10,.2);color:var(--amber);padding:6px 14px;border-radius:8px;font-size:12px;font-weight:500}
+
+/* ─── SLIDE 3: STATS ─── */
+#s3{background:var(--amber);padding:60px 24px}
+#s3 *{color:var(--ink)}
+.stats-eyebrow{font-size:11px;font-weight:700;color:rgba(0,0,0,.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.stats-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8vw,48px);margin-bottom:40px;line-height:1.05}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:14px;overflow:hidden;margin-bottom:28px}
+.stat-card{background:rgba(0,0,0,.08);padding:22px 16px;text-align:center}
+.stat-card:hover{background:rgba(0,0,0,.14)}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;letter-spacing:1px;color:var(--ink)}
+.stat-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(0,0,0,.55);margin-top:4px}
+.platform-row{display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.08);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.platform-name{font-weight:600;font-size:14px}
+.platform-val{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.5px}
+
+/* ─── SLIDE 4: CONTENT / NICHES ─── */
+#s4{background:#0d0d0d;padding:60px 24px}
+.niche-eyebrow{font-size:11px;font-weight:600;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.niche-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8vw,48px);margin-bottom:8px}
+.niche-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:32px;line-height:1.6}
+.niche-list{display:flex;flex-direction:column;gap:3px;border-radius:14px;overflow:hidden}
+.niche-item{background:rgba(255,255,255,.04);padding:18px 16px;display:flex;align-items:center;gap:14px;cursor:default;transition:background .2s}
+.niche-item:hover{background:rgba(255,255,255,.08)}
+.niche-icon{font-size:24px;width:44px;height:44px;border-radius:10px;background:rgba(232,131,10,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.niche-info{flex:1}
+.niche-name{font-weight:600;font-size:15px;margin-bottom:3px}
+.niche-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.4}
+.niche-bar-wrap{width:60px;text-align:right}
+.niche-pct{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--amber)}
+.niche-track{width:60px;height:3px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:4px;overflow:hidden}
+.niche-fill{height:100%;background:var(--amber);border-radius:2px}
+
+/* ─── SLIDE 5: AUDIENCE ─── */
+#s5{background:#111;padding:60px 24px}
+.aud-eyebrow{font-size:11px;font-weight:600;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.aud-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8vw,48px);margin-bottom:32px;line-height:1.05}
+.aud-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px;margin-bottom:12px}
+.aud-card-label{font-size:11px;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.aud-card-value{font-size:22px;font-weight:600;color:var(--white)}
+.aud-card-value em{color:var(--amber);font-style:normal}
+.gender-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-top:10px;gap:2px}
+.gender-m{background:var(--amber);border-radius:4px}
+.gender-f{background:rgba(255,255,255,.2);border-radius:4px}
+.gender-legend{display:flex;gap:16px;margin-top:8px}
+.gender-legend span{font-size:11px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:5px}
+.gender-legend span::before{content:'';width:8px;height:8px;border-radius:50%;display:inline-block}
+.gender-legend .m::before{background:var(--amber)}
+.gender-legend .f::before{background:rgba(255,255,255,.3)}
+.age-bars{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.age-row{display:flex;align-items:center;gap:8px}
+.age-label{font-size:12px;color:rgba(255,255,255,.4);width:60px;flex-shrink:0}
+.age-track{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.age-fill{height:100%;background:var(--amber);border-radius:3px;opacity:.85}
+.age-pct{font-size:12px;color:rgba(255,255,255,.4);width:30px;text-align:right;flex-shrink:0}
+
+/* ─── SLIDE 6: PAST WORK / GALLERY ─── */
+#s6{background:#0d0d0d;padding:60px 24px}
+.work-eyebrow{font-size:11px;font-weight:600;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.work-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8vw,48px);margin-bottom:8px}
+.work-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px}
+.collab-logos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;border-radius:12px;overflow:hidden;margin-bottom:24px}
+.logo-box{background:rgba(255,255,255,.04);aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,.2);font-weight:600;letter-spacing:.5px;text-align:center;padding:8px;cursor:default;transition:background .2s}
+.logo-box:hover{background:rgba(255,255,255,.08)}
+.logo-box.add{border:1.5px dashed rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.15);font-size:22px}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;border-radius:12px;overflow:hidden}
+.gallery-img{aspect-ratio:1;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;cursor:default;transition:background .2s;position:relative;overflow:hidden}
+.gallery-img:hover{background:rgba(255,255,255,.08)}
+.gallery-img svg{width:28px;height:28px;stroke:rgba(255,255,255,.15);fill:none}
+.gallery-label{position:absolute;bottom:8px;left:10px;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.5px}
+
+/* ─── SLIDE 7: SERVICES / RATES ─── */
+#s7{background:#111;padding:60px 24px}
+.svc-eyebrow{font-size:11px;font-weight:600;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.svc-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8vw,48px);margin-bottom:8px;line-height:1.05}
+.svc-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px;line-height:1.6}
+.svc-list{display:flex;flex-direction:column;gap:10px}
+.svc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 16px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s}
+.svc-card:hover{border-color:rgba(232,131,10,.3)}
+.svc-card.featured{border-color:rgba(232,131,10,.4);background:rgba(232,131,10,.06)}
+.svc-icon{font-size:22px;width:44px;height:44px;border-radius:10px;background:rgba(232,131,10,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.svc-info{flex:1}
+.svc-name{font-weight:600;font-size:15px;margin-bottom:3px}
+.svc-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5}
+.svc-badge{font-size:10px;font-weight:700;background:var(--amber);color:#fff;padding:2px 8px;border-radius:4px;margin-top:6px;display:inline-block;letter-spacing:.5px}
+
+/* ─── SLIDE 8: CONTACT ─── */
+#s8{background:var(--ink);padding:60px 24px;justify-content:center}
+.contact-glow{position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(232,131,10,.12) 0%,transparent 70%);pointer-events:none}
+.contact-eyebrow{font-size:11px;font-weight:600;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;text-align:center}
+.contact-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,10vw,56px);text-align:center;line-height:1;margin-bottom:12px}
+.contact-sub{font-size:14px;color:rgba(255,255,255,.4);text-align:center;margin-bottom:36px;line-height:1.6}
+.contact-btns{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.cta-primary{background:var(--amber);color:#fff;border:none;border-radius:12px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.3px;text-align:center;text-decoration:none;display:block;transition:opacity .2s}
+.cta-primary:hover{opacity:.9}
+.cta-secondary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.15);border-radius:12px;padding:16px;font-size:15px;font-weight:500;cursor:pointer;letter-spacing:.3px;text-align:center;text-decoration:none;display:block;transition:border-color .2s}
+.cta-secondary:hover{border-color:rgba(255,255,255,.35)}
+.contact-info{text-align:center;font-size:13px;color:rgba(255,255,255,.3);line-height:2}
+.contact-info a{color:rgba(255,255,255,.4);text-decoration:none}
+.footer-bar{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:11px;color:rgba(255,255,255,.15);letter-spacing:.3px}
+.gear-btn{background:none;border:none;color:rgba(255,255,255,.12);cursor:pointer;font-size:16px;padding:4px 8px;font-family:inherit;transition:color .2s}
+.gear-btn:hover{color:rgba(255,255,255,.3)}
+
+/* ─── PASSWORD OVERLAY ─── */
+.pw-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 1000; align-items: center; justify-content: center; padding: 20px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.pw-overlay.open { display: flex; }
+.pw-box { background: #1a1a1a; border: 1px solid rgba(255,255,255,.1); width: 100%; max-width: 340px; border-radius: 22px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+.pw-icon { font-size: 32px; margin-bottom: 12px; }
+.pw-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; margin-bottom: 8px; }
+.pw-sub { font-size: 12px; color: rgba(255,255,255,.5); margin-bottom: 24px; }
+.pw-input { width: 100%; background: rgba(255,255,255,.05); border: 1.5px solid rgba(255,255,255,.1); border-radius: 12px; padding: 14px; font-size: 16px; font-family: 'Inter', sans-serif; color: #fff; text-align: center; outline: none; margin-bottom: 12px; letter-spacing: 2px; }
+.pw-input:focus { border-color: var(--amber); }
+.pw-input.shake { animation: shake 0.4s; border-color: #ff4444; }
+.pw-error { color: #ff4444; font-size: 12px; min-height: 15px; margin-bottom: 16px; }
+.pw-btn { width: 100%; background: var(--amber); color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; margin-bottom: 12px; transition: opacity 0.2s; }
+.pw-btn:hover { opacity: 0.9; }
+.pw-cancel { background: transparent; color: rgba(255,255,255,.4); border: none; font-size: 13px; font-weight: 600; cursor: pointer; padding: 8px; font-family: inherit; transition: color 0.2s; }
+.pw-cancel:hover { color: #fff; }
+@keyframes shake { 0%, 100% {transform: translateX(0);} 25% {transform: translateX(-5px);} 75% {transform: translateX(5px);} }
+
+/* ─── ADMIN PANEL ─── */
+.admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 999; align-items: center; justify-content: center; padding: 20px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); cursor: pointer; }
+.admin-overlay.open { display: flex; }
+.admin-sheet { background: #1a1a1a; border: 1px solid rgba(255,255,255,.1); width: 100%; max-width: 380px; border-radius: 22px; padding: 24px 20px; max-height: 85vh; overflow-y: auto; position: relative; cursor: default; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+.admin-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.admin-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; }
+.admin-close { background: rgba(255,255,255,.08); border: none; color: rgba(255,255,255,.5); width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.admin-logout { font-size: 12px; color: rgba(255,255,255,.3); background: none; border: none; cursor: pointer; font-family: inherit; text-decoration: underline; padding: 0; margin-bottom: 20px; }
+.f-section { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.25); text-transform: uppercase; letter-spacing: 1.5px; margin: 20px 0 12px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.07); }
+.f-group { margin-bottom: 14px; }
+.f-label { display: block; font-size: 11px; font-weight: 600; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 6px; }
+.f-input { width: 100%; background: rgba(255,255,255,.05); border: 1.5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 12px 14px; font-size: 14px; font-family: 'Inter', sans-serif; color: #fff; outline: none; }
+.f-input:focus { border-color: var(--amber); }
+.save-btn { width: 100%; background: var(--amber); color: #fff; border: none; border-radius: 12px; padding: 16px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 12px; letter-spacing: .3px; }
+
+/* ─── SCROLL ANIMATIONS ─── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up.d1{transition-delay:.1s}
+.fade-up.d2{transition-delay:.2s}
+.fade-up.d3{transition-delay:.3s}
+.fade-up.d4{transition-delay:.4s}
+
+@media(min-width:600px){
+  .stats-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+  .hero-name{font-size:90px}
+  .contact-headline{font-size:68px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-dots" id="navDots"></div>
+
+<section class="slide" id="s1">
+  <div class="hero-bg"></div>
+  <div class="hero-amber-glow"></div>
+
+  <div class="ig-strip">
+    <div class="ig-avatar-ring" id="ig-avatar-zone">
+      <div class="ig-avatar-inner">
+        <img id="ig-avatar-img">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      </div>
+    </div>
+    <div class="ig-user-block">
+      <div class="ig-username">awara.hai <span class="badge"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      <div class="ig-stats-row">
+        <div><strong id="ig-posts">72</strong>posts</div>
+        <div><strong id="ig-followers">12K</strong>followers</div>
+        <div><strong>310</strong>following</div>
+      </div>
+    </div>
+  </div>
+  <div class="ig-follow-row">
+    <a class="ig-follow-btn" href="#" onclick="openIG(event)">Follow</a>
+    <a class="ig-msg-btn" href="#" id="wa-btn-2" onclick="openWA(event)">Message</a>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up"><span></span> Media Kit 2026</div>
+    <div class="hero-name fade-up d1" id="d-name">SAMUEL<br><em>GAIKWAD</em></div>
+    <div class="hero-handle fade-up d2" id="d-handle">@awara.hai · Digital Creator</div>
+    <div class="hero-tags fade-up d3">
+      <span class="hero-tag outline">🧗 Sports </span>
+      <span class="hero-tag outline">🏔️ Adventure</span>
+      <span class="hero-tag outline">✈️ Travel</span>
+      <span class="hero-tag outline">💪 Fitness</span>
+    </div>
+    <div class="hero-scroll fade-up d4"><div class="scroll-line"></div> Scroll to explore</div>
+  </div>
+  <div class="hero-video-wrap fade-up d4" id="hero-img-zone">
+    <div class="img-placeholder" id="hero-img-placeholder" style="padding:60px 0">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <span>ADD COVER PHOTO VIA ADMIN</span>
+    </div>
+    <img id="hero-img-el" style="display:none;width:100%;max-height:360px;object-fit:cover">
+  </div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="about-eyebrow fade-up">About</div>
+  <div class="about-headline fade-up d1">This Account<br>Belongs to<br><span style="color:var(--amber)">Freedom.</span></div>
+  <div class="about-img fade-up d2" id="about-img-zone">
+    <div class="img-placeholder" id="about-img-placeholder">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <span>ADD PHOTO VIA ADMIN</span>
+    </div>
+    <img id="about-img-el" style="display:none;width:100%;height:100%;object-fit:cover">
+  </div>
+  <div class="about-body fade-up d2">
+    Samuel Gaikwad is a Pune-based hybrid athlete and digital creator who lives on the edge — literally. From soaring above Bir Billing to trekking through Zanskar's frozen landscapes, Samuel turns every adventure into a story worth sharing.<br><br>
+    With a loyal community of <strong style="color:#fff">12K+ followers</strong>, his content blends raw adventure, fitness, and genuine storytelling that brands trust and audiences love.
+  </div>
+  <div class="value-chips fade-up d3">
+    <span class="value-chip">Authenticity</span>
+    <span class="value-chip">Adventure First</span>
+    <span class="value-chip">Fitness</span>
+    <span class="value-chip">Exploration</span>
+    <span class="value-chip">Storytelling</span>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="stats-eyebrow fade-up">By the Numbers</div>
+  <div class="stats-headline fade-up d1">Numbers That<br>Speak for<br>Themselves.</div>
+  <div class="stats-grid fade-up d2">
+    <div class="stat-card">
+      <div class="stat-n" id="big-followers">12K</div>
+      <div class="stat-l">IG Followers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n" id="big-eng">4.8%</div>
+      <div class="stat-l">Engagement</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n" id="big-reach">1M</div>
+      <div class="stat-l">Monthly Reach</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n">72</div>
+      <div class="stat-l">Posts</div>
+    </div>
+  </div>
+  <div class="fade-up d3" style="margin-top:16px">
+    <div class="platform-row">
+      <span class="platform-name">📸 Instagram</span>
+      <span class="platform-val" id="d-followers">12K</span>
+    </div>
+    <div class="platform-row" style="margin-bottom:0">
+      <span class="platform-name">📍 Pune, India</span>
+      <span class="platform-val" style="font-size:14px;font-weight:600">Based</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="niche-eyebrow fade-up">Content Pillars</div>
+  <div class="niche-headline fade-up d1">What Samuel<br><span style="color:var(--amber)">Creates.</span></div>
+  <div class="niche-sub fade-up d2">Four core content categories, each shot from the ground — or 3,000 feet above it.</div>
+  <div class="niche-list fade-up d3">
+    <div class="niche-item">
+      <div class="niche-icon">🪂</div>
+      <div class="niche-info">
+        <div class="niche-name">Paragliding</div>
+      </div>
+    </div>
+    <div class="niche-item">
+      <div class="niche-icon">🏔️</div>
+      <div class="niche-info">
+        <div class="niche-name">Adventure</div>
+      </div>
+    </div>
+    <div class="niche-item">
+      <div class="niche-icon">✈️</div>
+      <div class="niche-info">
+        <div class="niche-name">Travel</div>
+      </div>
+      </div>
+    </div>
+    <div class="niche-item">
+      <div class="niche-icon">💪</div>
+      <div class="niche-info">
+        <div class="niche-name">Fitness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="aud-eyebrow fade-up">Audience</div>
+  <div class="aud-headline fade-up d1">Who's<br>Watching.</div>
+  <div class="aud-card fade-up d2">
+    <div class="aud-card-label">Gender Split</div>
+    <div class="aud-card-value"><em id="d-gender-m">68%</em> Male · <span id="d-gender-f" style="color:rgba(255,255,255,.6)">32%</span> Female</div>
+    <div class="gender-bar">
+      <div class="gender-m" id="gender-bar-m" style="width:68%"></div>
+      <div class="gender-f" id="gender-bar-f" style="width:32%"></div>
+    </div>
+    <div class="gender-legend">
+      <span class="m">Male</span>
+      <span class="f">Female</span>
+    </div>
+  </div>
+  <div class="aud-card fade-up d2">
+    <div class="aud-card-label">Age Distribution</div>
+    <div class="age-bars">
+      <div class="age-row"><span class="age-label">13–17</span><div class="age-track"><div class="age-fill" style="width:8%"></div></div><span class="age-pct">8%</span></div>
+      <div class="age-row"><span class="age-label">18–24</span><div class="age-track"><div class="age-fill" style="width:45%"></div></div><span class="age-pct">45%</span></div>
+      <div class="age-row"><span class="age-label">25–34</span><div class="age-track"><div class="age-fill" style="width:30%"></div></div><span class="age-pct">30%</span></div>
+      <div class="age-row"><span class="age-label">35–44</span><div class="age-track"><div class="age-fill" style="width:12%"></div></div><span class="age-pct">12%</span></div>
+      <div class="age-row"><span class="age-label">45+</span><div class="age-track"><div class="age-fill" style="width:5%"></div></div><span class="age-pct">5%</span></div>
+    </div>
+  </div>
+  <div class="aud-card fade-up d3">
+    <div class="aud-card-label">Top Locations</div>
+    <div class="aud-card-value" id="d-location" style="font-size:18px">Pune · Mumbai · Delhi · Bangalore</div>
+  </div>
+  <div class="aud-card fade-up d3">
+    <div class="aud-card-label">Primary Interests</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+      <span class="value-chip">🏔️ Outdoors</span>
+      <span class="value-chip">🧗 Sports</span>
+      <span class="value-chip">✈️ Travel</span>
+      <span class="value-chip">💪 Fitness</span>
+      <span class="value-chip">📸 Photography</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="work-eyebrow fade-up">Past Work</div>
+  <div class="work-headline fade-up d1">Adventures<br><span style="color:var(--amber)">& Collabs.</span></div>
+  <div class="work-sub fade-up d2">Brands Samuel has worked with — replace logos with your actual collaborations.</div>
+  <div class="collab-logos fade-up d2" id="collab-logos">
+    <div class="logo-box">BRAND 1<br><span style="font-weight:300;font-size:9px">Add via Admin</span></div>
+    <div class="logo-box">BRAND 2<br><span style="font-weight:300;font-size:9px">Add via Admin</span></div>
+    <div class="logo-box">BRAND 3<br><span style="font-weight:300;font-size:9px">Add via Admin</span></div>
+    <div class="logo-box">BRAND 4<br><span style="font-weight:300;font-size:9px">Add via Admin</span></div>
+    <div class="logo-box">BRAND 5<br><span style="font-weight:300;font-size:9px">Add via Admin</span></div>
+    <div class="logo-box add">+</div>
+  </div>
+  <div class="gallery-grid fade-up d3" id="gallery-grid">
+    <div class="gallery-img"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="gallery-label">01</span></div>
+    <div class="gallery-img"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="gallery-label">02</span></div>
+    <div class="gallery-img"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="gallery-label">03</span></div>
+    <div class="gallery-img"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="gallery-label">04</span></div>
+    <div class="gallery-img"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="gallery-label">05</span></div>
+    <div class="gallery-img"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="gallery-label">06</span></div>
+  </div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="svc-eyebrow fade-up">Collaboration</div>
+  <div class="svc-headline fade-up d1">Let's Make<br>Something<br><span style="color:var(--amber)">Epic.</span></div>
+  <div class="svc-sub fade-up d2">Available for brand partnerships across these formats:</div>
+  <div class="svc-list fade-up d3">
+    <div class="svc-card featured">
+      <div class="svc-icon">🎬</div>
+      <div class="svc-info">
+        <div class="svc-name">Dedicated Reel / Video</div>
+        <div class="svc-desc">Full dedicated Instagram Reel or YouTube video featuring your brand</div>
+        <div class="svc-badge">MOST POPULAR</div>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📸</div>
+      <div class="svc-info">
+        <div class="svc-name">Sponsored Feed Post</div>
+        <div class="svc-desc">Static or carousel post with authentic brand integration</div>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📍</div>
+      <div class="svc-info">
+        <div class="svc-name">Destination / Experience</div>
+        <div class="svc-desc">Travel + adventure content shot on location for tourism brands</div>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🤝</div>
+      <div class="svc-info">
+        <div class="svc-name">Brand Ambassadorship</div>
+        <div class="svc-desc">Long-term partnership — multiple posts, gear review, ongoing presence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="contact-glow"></div>
+  <div style="position:relative;z-index:2;width:100%;padding:0 24px">
+    <div class="contact-eyebrow fade-up">Get in Touch</div>
+    <div class="contact-headline fade-up d1">Ready to<br>Collab?</div>
+    <div class="contact-sub fade-up d2">For paid collaborations, brand partnerships,<br>and sponsored adventures — let's talk.</div>
+    <div class="contact-btns fade-up d3">
+      <a class="cta-primary" href="#" id="wa-btn" onclick="openWA(event)">💬 WhatsApp Samuel</a>
+      <a class="cta-secondary" href="#" id="ig-btn" onclick="openIG(event)">📲 Instagram DM — @awara.hai</a>
+    </div>
+    <div class="contact-info fade-up d4">
+      <span id="d-email">samuelgaikwad@gmail.com</span><br>
+      📍 Pune, Maharashtra, India<br>
+      <a href="https://youtube.com/@samuelgaikwad" target="_blank">youtube.com/@samuelgaikwad</a>
+    </div>
+
+  </div>
+  <div class="footer-bar" style="bottom: 40px; color: rgba(255,255,255,0.4);">
+    <span id="d-footer-name">Samuel Gaikwad</span> &nbsp;·&nbsp; All rights reserved
+
+    <div style="margin-top: 12px; display: flex; justify-content: center; gap: 16px;">
+      <a class="gear-btn" href="/admin/" title="Admin" style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 6px 12px; font-size: 12px; color: #fff; text-decoration:none;">
+        ⚙ Admin
+      </a>
+
+      <button class="gear-btn" onclick="downloadPDF()" title="Download PDF" style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 6px 12px; font-size: 12px; color: #fff;">
+        📥 Download PDF
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+// ─── NAV DOTS ───
+var slides=['s1','s2','s3','s4','s5','s6','s7','s8'];
+var labels=['Hero','About','Stats','Content','Audience','Work','Services','Contact'];
+var nd=document.getElementById('navDots');
+slides.forEach(function(id,i){
+  var b=document.createElement('button');
+  b.className='nav-dot';b.title=labels[i];
+  b.onclick=function(){document.getElementById(id).scrollIntoView({behavior:'smooth'})};
+  nd.appendChild(b);
+});
+
+// ─── INTERSECTION: dots + fade-up ───
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var idx=slides.indexOf(e.target.id);
+      if(idx>=0){
+        document.querySelectorAll('.nav-dot').forEach(function(d,i){d.classList.toggle('active',i===idx)});
+      }
+    }
+  });
+},{threshold:0.5});
+slides.forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+
+var fio=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.15});
+document.querySelectorAll('.fade-up').forEach(function(el){fio.observe(el)});
+
+// ─── LOAD LIVE CONTENT (edited via /admin, saved to content/data.json by the CMS) ───
+var siteData = {};
+
+function applyName(fullName){
+  fullName = (fullName||'Samuel Gaikwad').trim();
+  var parts = fullName.split(' ');
+  var first = parts.shift();
+  var rest = parts.join(' ');
+  document.getElementById('d-name').innerHTML = first.toUpperCase() + (rest ? '<br><em>'+rest.toUpperCase()+'</em>' : '');
+}
+
+function applyPhoto(imgId, placeholderId, url){
+  var img = document.getElementById(imgId);
+  var placeholder = document.getElementById(placeholderId);
+  if(url){
+    img.src = url; img.style.display = 'block';
+    if(placeholder) placeholder.style.display = 'none';
+  } else {
+    img.removeAttribute('src'); img.style.display = 'none';
+    if(placeholder) placeholder.style.display = 'flex';
+  }
+}
+
+function renderGallery(gallery){
+  var grid = document.getElementById('gallery-grid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  var items = (gallery && gallery.length) ? gallery : [];
+  var placeholders = 6 - items.length;
+  items.forEach(function(item){
+    var div = document.createElement('div');
+    div.className = 'gallery-img';
+    div.innerHTML = '<img src="' + item.image + '" style="width:100%;height:100%;object-fit:cover">' +
+      (item.caption ? '<span class="gallery-label">' + item.caption + '</span>' : '');
+    grid.appendChild(div);
+  });
+  for(var i=0;i<Math.max(placeholders,0);i++){
+    var div = document.createElement('div');
+    div.className = 'gallery-img';
+    div.innerHTML = '<svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>';
+    grid.appendChild(div);
+  }
+}
+
+function renderBrandLogos(logos){
+  var wrap = document.getElementById('collab-logos');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+  var items = (logos && logos.length) ? logos : [];
+  items.forEach(function(item){
+    var div = document.createElement('div');
+    div.className = 'logo-box';
+    if(item.image){ div.innerHTML = '<img src="' + item.image + '" style="width:60%;object-fit:contain">'; }
+    else { div.textContent = item.name || 'Brand'; }
+    wrap.appendChild(div);
+  });
+  var placeholders = Math.max(6 - items.length - 1, 0);
+  for(var i=0;i<placeholders;i++){
+    var div = document.createElement('div');
+    div.className = 'logo-box';
+    div.innerHTML = 'BRAND<br><span style="font-weight:300;font-size:9px">Add via Admin</span>';
+    wrap.appendChild(div);
+  }
+  var addDiv = document.createElement('div');
+  addDiv.className = 'logo-box add';
+  addDiv.textContent = '+';
+  wrap.appendChild(addDiv);
+}
+
+function renderSite(data){
+  siteData = data || {};
+  var stats = siteData.stats || {};
+  var audience = siteData.audience || {};
+  var photos = siteData.photos || {};
+  var m = parseInt(audience.malePct, 10);
+  if(isNaN(m)) m = 68;
+  var f = 100 - m;
+
+  applyName(siteData.name);
+  document.getElementById('d-handle').textContent = siteData.handle || '@awara.hai · Digital Creator';
+  document.getElementById('d-footer-name').textContent = siteData.name || 'Samuel Gaikwad';
+
+  var followers = stats.followers || '12K';
+  document.getElementById('d-followers').textContent = followers;
+  document.getElementById('big-followers').textContent = followers;
+  document.getElementById('ig-followers').textContent = followers;
+  document.getElementById('ig-posts').textContent = stats.posts || '72';
+  document.getElementById('big-eng').textContent = stats.eng || '4.8%';
+  document.getElementById('big-reach').textContent = stats.reach || '1M';
+
+  var igHandleEl = document.querySelector('.ig-username');
+  if(igHandleEl){ igHandleEl.childNodes[0].textContent = '@' + (siteData.instagram || 'awara.hai') + ' '; }
+
+  document.getElementById('d-email').textContent = siteData.email || 'samuelgaikwad@gmail.com';
+  document.getElementById('d-location').textContent = audience.location || 'Pune · Mumbai · Delhi · Bangalore';
+
+  document.getElementById('d-gender-m').textContent = m + '%';
+  document.getElementById('d-gender-f').textContent = f + '%';
+  document.getElementById('gender-bar-m').style.width = m + '%';
+  document.getElementById('gender-bar-f').style.width = f + '%';
+
+  applyPhoto('hero-img-el', 'hero-img-placeholder', photos.heroPhoto);
+  applyPhoto('about-img-el', 'about-img-placeholder', photos.aboutPhoto);
+  var igAvatar = document.getElementById('ig-avatar-img');
+  if(photos.heroPhoto){ igAvatar.src = photos.heroPhoto; igAvatar.style.display = 'block'; }
+  else { igAvatar.removeAttribute('src'); igAvatar.style.display = 'none'; }
+
+  renderGallery(siteData.gallery);
+  renderBrandLogos(siteData.brandLogos);
+}
+
+window.onload = function() {
+  fetch('/content/data.json', { cache: 'no-store' })
+    .then(function(res){ return res.ok ? res.json() : {}; })
+    .then(function(data){ renderSite(data); })
+    .catch(function(){ renderSite({}); });
+};
+
+function openWA(e){
+  e.preventDefault();
+  var n = (siteData.whatsapp || '919999999999').replace(/\D/g,'');
+  var name = (siteData.name || 'Samuel').split(' ')[0];
+  window.open('https://wa.me/'+n+'?text=Hi+' + name + '!+I+came+across+your+media+kit+and+would+love+to+discuss+a+collaboration.','_blank');
+}
+function openIG(e){
+  e.preventDefault();
+  window.open('https://instagram.com/'+(siteData.instagram || 'awara.hai'),'_blank');
+}
+
+function downloadPDF() {
+  var element = document.body;
+  var navDots = document.getElementById('navDots');
+  var prevNavDisplay = navDots.style.display;
+  navDots.style.display = 'none'; // fixed-position element breaks tall multi-page canvas capture
+
+  var slideEls = document.querySelectorAll('.slide');
+  slideEls.forEach(function(el, i){
+    if(i > 0) el.classList.add('pdf-page-break');
+  });
+
+  document.documentElement.style.scrollSnapType = 'none';
+  window.scrollTo(0, 0);
+
+  setTimeout(function(){
+    var opt = {
+      margin:       0,
+      filename:     ((siteData.name||'mediakit').replace(/\s+/g,'_')) + '_Media_Kit.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#0a0a0a',
+        windowWidth: document.documentElement.clientWidth,
+        scrollX: 0,
+        scrollY: 0
+      },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
+      pagebreak:    { mode: ['css'], before: '.pdf-page-break' }
+    };
+
+    function cleanup(){
+      document.documentElement.style.scrollSnapType = 'y mandatory';
+      navDots.style.display = prevNavDisplay;
+      slideEls.forEach(function(el){ el.classList.remove('pdf-page-break'); });
+    }
+
+    html2pdf().set(opt).from(element).save().then(cleanup).catch(function(err){
+      console.error('PDF export failed', err);
+      cleanup();
+      alert('PDF export ran into an issue. Try again — if a large photo was just added, try a smaller one.');
+    });
+  }, 150);
+}
+</script>
+</body>
+</html>
